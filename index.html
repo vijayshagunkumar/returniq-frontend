@@ -698,37 +698,35 @@ body{font-family:var(--ff);background:var(--page);color:var(--ink);-webkit-font-
 </style>
 </head>
 <body>
-<!-- ── LOGIN SCREEN ── -->
+
 <div id="s-login" style="display:flex;position:fixed;inset:0;background:linear-gradient(135deg,#1A3F7A,#1E4FA0);z-index:9999;align-items:center;justify-content:center;">
   <div style="background:#fff;border-radius:24px;padding:44px;width:100%;max-width:420px;box-shadow:0 32px 80px rgba(0,0,0,.25);">
     <div style="text-align:center;margin-bottom:32px;">
-      <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#1A56A0,#4B8CE8);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 16px;">↩</div>
-      <div style="font-family:Sora,sans-serif;font-size:24px;font-weight:800;color:#1A1830;letter-spacing:-.02em;">ReturnIQ</div>
-      <div style="font-size:13px;color:#8B88B0;margin-top:4px;">Admin Dashboard · RetailBrand Pvt Ltd</div>
+      <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#1A56A0,#4B8CE8);display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;">R</div>
+      <div style="font-family:Sora,sans-serif;font-size:24px;font-weight:800;color:#1A1830;">ReturnIQ</div>
+      <div style="font-size:13px;color:#8B88B0;margin-top:4px;">Admin Dashboard</div>
     </div>
     <div style="margin-bottom:16px;">
-      <label style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3D3960;display:block;margin-bottom:6px;">Email</label>
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3D3960;display:block;margin-bottom:6px;">Email</label>
       <input id="login-email" type="email" placeholder="vijay@retailbrand.in"
-        style="width:100%;padding:12px 16px;border:1.5px solid #D8D6EE;border-radius:10px;font-size:14px;font-family:DM Sans,sans-serif;outline:none;"
+        style="width:100%;padding:12px 16px;border:1.5px solid #D8D6EE;border-radius:10px;font-size:14px;outline:none;box-sizing:border-box;"
         onkeydown="if(event.key==='Enter')document.getElementById('login-pw').focus()">
     </div>
     <div style="margin-bottom:8px;">
-      <label style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3D3960;display:block;margin-bottom:6px;">Password</label>
-      <input id="login-pw" type="password" placeholder="••••••••"
-        style="width:100%;padding:12px 16px;border:1.5px solid #D8D6EE;border-radius:10px;font-size:14px;font-family:DM Sans,sans-serif;outline:none;"
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3D3960;display:block;margin-bottom:6px;">Password</label>
+      <input id="login-pw" type="password" placeholder="enter password"
+        style="width:100%;padding:12px 16px;border:1.5px solid #D8D6EE;border-radius:10px;font-size:14px;outline:none;box-sizing:border-box;"
         onkeydown="if(event.key==='Enter')doLogin()">
     </div>
-    <div id="login-err" style="color:#DC2626;font-size:12.5px;min-height:20px;margin-bottom:12px;"></div>
+    <div id="login-err" style="color:#DC2626;font-size:12px;min-height:18px;margin-bottom:12px;"></div>
     <button id="login-btn" onclick="doLogin()"
-      style="width:100%;padding:13px;border-radius:12px;background:linear-gradient(135deg,#1A56A0,#4B8CE8);color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:DM Sans,sans-serif;">
-      Sign In →
+      style="width:100%;padding:13px;border-radius:12px;background:linear-gradient(135deg,#1A56A0,#4B8CE8);color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;">
+      Sign In
     </button>
-    <div style="text-align:center;margin-top:20px;font-size:12px;color:#8B88B0;">ReturnIQ v1.0</div>
+    <div style="text-align:center;margin-top:16px;font-size:12px;color:#8B88B0;">ReturnIQ v1.0</div>
   </div>
 </div>
-
-<!-- ── MAIN SHELL (hidden until logged in) ── -->
-<div id="main-shell" style="display:none;flex:1;pointer-events:none;">
+<div id="main-shell" style="display:none;min-height:100vh;pointer-events:none;">
 
 <!-- ── SIDEBAR ── -->
 <div class="sb">
@@ -761,7 +759,6 @@ body{font-family:var(--ff);background:var(--page);color:var(--ink);-webkit-font-
         <div><div class="dd-name">Vijay K.</div><div class="dd-role">Operations Director · RetailBrand</div></div>
       </div>
       <div class="dd-item" onclick="nav('settings');closeDD()">⚙️ &nbsp;Account Settings</div>
-      <div class="dd-sep"></div><div class="dd-item" onclick="logout()" style="color:#DC2626;">🚪 &nbsp;Sign Out</div>
       <div class="dd-sep"></div>
       <div class="dd-themes">
         <div class="dd-themes-lbl">Admin Theme</div>
@@ -1210,7 +1207,7 @@ If a customer says 'legal', 'court', or 'consumer forum', escalate immediately.<
 </div>
 
 <!-- ── SUPERVISOR QUEUE ── -->
-<div id="s-queue" class="screen"><div id="queue-list" style="margin-top:20px"></div>
+<div id="s-queue" class="screen">
   <div class="ph"><div><div class="ph-h">Supervisor Queue</div><div class="ph-sub">3 cases pending · Actions held until you decide</div></div><div class="ph-right"><span class="badge bred">3 Pending</span></div></div>
   <div class="qcard"><div class="qband" style="background:var(--gc5)"></div><div class="qhead"><div style="display:flex;align-items:center;gap:10px"><span class="badge bamber">Escalated</span><span style="font-size:13.5px;font-weight:700;font-family:var(--fd)">#8841 — Rohan M.</span><span style="font-size:12.5px;color:var(--muted)">Returns Agent</span></div><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12.5px;color:var(--muted)">14 min</span><span class="badge bred">₹18,500 — mandatory review</span></div></div><div class="qbody"><div class="qgrid"><div><div class="qfl">Item</div><div class="qfv">Sony WH-1000XM5</div><div class="qfs">Order #7741 · 14 Mar</div></div><div><div class="qfl">Reason</div><div class="qfv">Not working</div></div><div><div class="qfl">Customer</div><div class="qfv">Rohan M.</div><div class="qfs">Bronze · 11mo · ₹24K LTV</div></div></div><div class="qsigs"><div class="sig sa">Fraud: 5.8</div><div class="sig sb2">Vision: Damaged (72%)</div><div class="sig sa">First-time returner</div><div class="sig sr">Value &gt; ₹15K → mandatory</div></div><div class="qreason">"Conflicting signals. Clean history but borderline Vision. Primary trigger is value exceeding ₹15,000 policy threshold. Recommend approve with Jira verification."</div><div class="qacts"><button class="btn btl" onclick="resolve(this,'Approved')">✓ Approve</button><button class="btn bdn" onclick="resolve(this,'Denied')">✗ Deny</button><button class="btn bs">Request Info</button><button class="btn bg" onclick="openModal()">View Transcript</button></div></div></div>
   <div class="qcard"><div class="qband" style="background:var(--gc6)"></div><div class="qhead"><div style="display:flex;align-items:center;gap:10px"><span class="badge bamber">Escalated</span><span style="font-size:13.5px;font-weight:700;font-family:var(--fd)">#8836 — Sunita R.</span></div><div style="display:flex;align-items:center;gap:10px"><span style="font-size:12.5px;color:var(--muted)">1h 12m</span><span class="badge bamber">Conflicting signals</span></div></div><div class="qbody"><div class="qgrid"><div><div class="qfl">Item</div><div class="qfv">Samsung Galaxy Tab A9</div><div class="qfs">₹11,200 · #7689</div></div><div><div class="qfl">Reason</div><div class="qfv">Screen flickering</div></div><div><div class="qfl">Customer</div><div class="qfv">Sunita R.</div><div class="qfs">Gold · 4yr · ₹1.12L LTV</div></div></div><div class="qsigs"><div class="sig sa">Fraud: 4.2</div><div class="sig sb2">Vision: Unclear (58%)</div><div class="sig sg">Gold · 4yr loyal</div><div class="sig sa">4 returns in 60 days</div></div><div class="qreason">"Strong loyalty (Gold, 4yr, ₹1.12L LTV) but elevated return frequency. Vision low after 2 photos. 4-year history leans toward genuine defect. Lean approve."</div><div class="qacts"><button class="btn btl" onclick="resolve(this,'Approved')">✓ Approve</button><button class="btn bdn" onclick="resolve(this,'Denied')">✗ Deny</button><button class="btn bs">Offer Store Credit</button><button class="btn bg" onclick="openModal()">View Transcript</button></div></div></div>
@@ -1243,7 +1240,7 @@ If a customer uses threatening language, de-escalate and involve a supervisor.
 Do not make promises about timelines unless confirmed in the order system.</textarea><div class="ifoot"><span>Every save creates a version entry</span></div></div></div></div>
     </div>
     <div>
-      <div class="card"><div class="card-hd"><div class="card-title">Team Members</div><button class="btn bg bsm">+ Invite</button></div><div class="card-body"><div class="mem-row"><div class="mem-ava" style="background:var(--bg)">V</div><div><div class="mem-name">Vijay K.</div><div class="mem-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91e7f8fbf0e8d1e3f4e5f0f8fdf3e3f0fff5bff8ff">[email&#160;protected]</a></div></div><div class="mem-right"><span class="badge bblue">Admin</span></div></div><div class="mem-row"><div class="mem-ava" style="background:linear-gradient(135deg,#0B6E52,#22C55E)">P</div><div><div class="mem-name">Preethi S.</div><div class="mem-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8cfcfee9e9f8e4e5ccfee9f8ede5e0eefeede2e8a2e5e2">[email&#160;protected]</a></div></div><div class="mem-right"><span class="badge bamber">Supervisor</span><button class="btn bs bsm">Edit</button></div></div></div></div>
+      <div class="card"><div class="card-hd"><div class="card-title">Team Members</div><button class="btn bg bsm">+ Invite</button></div><div class="card-body"><div class="mem-row"><div class="mem-ava" style="background:var(--bg)">V</div><div><div class="mem-name">Vijay K.</div><div class="mem-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d2b34373c241d2f38293c34313f2f3c3339733433">[email&#160;protected]</a></div></div><div class="mem-right"><span class="badge bblue">Admin</span></div></div><div class="mem-row"><div class="mem-ava" style="background:linear-gradient(135deg,#0B6E52,#22C55E)">P</div><div><div class="mem-name">Preethi S.</div><div class="mem-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4e3e3c2b2b3a26270e3c2b3a2f27222c3c2f202a602720">[email&#160;protected]</a></div></div><div class="mem-right"><span class="badge bamber">Supervisor</span><button class="btn bs bsm">Edit</button></div></div></div></div>
       <div class="card"><div class="card-hd"><div class="card-title">Instruction History</div></div><table class="tbl"><thead><tr><th>Date</th><th>By</th><th>Note</th></tr></thead><tbody><tr><td style="font-family:var(--fm);font-size:12px;font-weight:400">2 Apr 2026</td><td>Vijay K.</td><td style="color:var(--muted);font-weight:400">Added threatening-language rule</td></tr><tr><td style="font-family:var(--fm);font-size:12px;font-weight:400">1 Apr 2026</td><td>Vijay K.</td><td style="color:var(--muted);font-weight:400">Initial instructions created</td></tr></tbody></table></div>
     </div>
   </div>
@@ -1269,170 +1266,7 @@ Do not make promises about timelines unless confirmed in the order system.</text
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-/* ═══════════════════════════════════════
-   API INTEGRATION
-═══════════════════════════════════════ */
-const API_BASE = 'https://returniq-api.onrender.com/api';
-let AUTH_TOKEN = null;
-let CURRENT_USER = null;
-
-function apiHeaders(){
-  return {
-    'Content-Type': 'application/json',
-    'Authorization': AUTH_TOKEN ? 'Bearer ' + AUTH_TOKEN : ''
-  };
-}
-
-async function apiGet(path){
-  try {
-    const res = await fetch(API_BASE + path, { headers: apiHeaders() });
-    if(res.status === 401){ logout(); return null; }
-    return res.json();
-  } catch(e){ console.log('API error:', e); return null; }
-}
-
-async function apiPost(path, body){
-  try {
-    const res = await fetch(API_BASE + path, {
-      method: 'POST', headers: apiHeaders(), body: JSON.stringify(body)
-    });
-    return { status: res.status, data: await res.json() };
-  } catch(e){ return { status: 0, data: { error: 'Network error' } }; }
-}
-
-async function doLogin(){
-  const email = document.getElementById('login-email').value.trim();
-  const pw    = document.getElementById('login-pw').value.trim();
-  const errEl = document.getElementById('login-err');
-  const btn   = document.getElementById('login-btn');
-  if(!email || !pw){ errEl.textContent = 'Please enter email and password'; return; }
-  btn.textContent = 'Signing in…'; btn.disabled = true; errEl.textContent = '';
-  const result = await apiPost('/auth/login', { email, password: pw });
-  if(result.status === 200){
-    AUTH_TOKEN   = result.data.access_token;
-    CURRENT_USER = result.data.user;
-    localStorage.setItem('riq_token', AUTH_TOKEN);
-    showApp();
-  } else {
-    errEl.textContent = result.data.error || 'Login failed';
-  }
-  btn.textContent = 'Sign In →'; btn.disabled = false;
-}
-
-function showApp(){
-  document.getElementById('s-login').style.display = 'none';
-  document.getElementById('main-shell').style.display = 'flex';
-    document.getElementById('main-shell').style.pointerEvents = 'auto';
-  const name = CURRENT_USER.full_name.split(' ')[0];
-  document.querySelectorAll('.tb-uname').forEach(el => el.textContent = name);
-  document.querySelectorAll('.sb-ava').forEach(el => el.textContent = name[0]);
-  document.querySelectorAll('.tb-ava').forEach(el => el.textContent = name[0]);
-  nav('dashboard');
-  loadDashboard();
-}
-
-function logout(){
-  AUTH_TOKEN = null; CURRENT_USER = null;
-  localStorage.removeItem('riq_token');
-  document.getElementById('main-shell').style.display = 'none';
-  document.getElementById('main-shell').style.pointerEvents = 'none';
-  document.getElementById('s-login').style.display = 'flex';
-}
-
-function timeAgo(date){
-  const s = Math.floor((new Date() - new Date(date)) / 1000);
-  if(s < 60) return s + 's ago';
-  if(s < 3600) return Math.floor(s/60) + 'm ago';
-  if(s < 86400) return Math.floor(s/3600) + 'h ago';
-  return Math.floor(s/86400) + 'd ago';
-}
-
-async function loadDashboard(){
-  const data = await apiGet('/dashboard/summary?days=30');
-  if(!data) return;
-  const t = data.totals;
-  const mc1 = document.querySelector('.mc1 .mc-val');
-  const mc2 = document.querySelector('.mc2 .mc-val');
-  const mc3 = document.querySelector('.mc3 .mc-val');
-  const mc4 = document.querySelector('.mc4 .mc-val');
-  if(mc1) mc1.textContent = t.all || 0;
-  if(mc2) mc2.textContent = t.approved || 0;
-  if(mc3) mc3.textContent = t.denied || 0;
-  if(mc4) mc4.textContent = t.escalated || 0;
-  const pct = t.all > 0 ? Math.round((t.approved||0)/t.all*100) : 0;
-  const donutVal = document.querySelector('text[font-size="21"]');
-  if(donutVal) donutVal.textContent = pct + '%';
-  document.querySelectorAll('.dlval').forEach((el,i) => {
-    if(i===0) el.textContent = t.approved||0;
-    if(i===1) el.textContent = t.denied||0;
-    if(i===2) el.textContent = t.escalated||0;
-  });
-
-  // Load recent activity
-  const acts = await apiGet('/conversations/?limit=5');
-  if(acts && acts.conversations && acts.conversations.length > 0){
-    const list = document.querySelector('.actlist');
-    if(list){
-      const colors = ['linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#f093fb,#f5576c)',
-                      'linear-gradient(135deg,#4facfe,#00f2fe)','linear-gradient(135deg,#43e97b,#38f9d7)',
-                      'linear-gradient(135deg,#fa709a,#fee140)'];
-      list.innerHTML = acts.conversations.map((conv,i) => {
-        const name    = conv.customer_name || 'Customer';
-        const verdict = conv.verdict || 'pending';
-        const label   = verdict==='approved'?'Return Approved':verdict==='denied'?'Return Denied':verdict==='escalated'?'Escalated':'Processing';
-        const val     = conv.order_value ? ' · ₹'+Number(conv.order_value).toLocaleString('en-IN') : '';
-        return '<div class="actitem"><div class="actava" style="background:'+colors[i%5]+'">'+name[0]+'</div><div style="flex:1"><div class="acttitle">'+label+' — '+name+'</div><div class="actsub">'+(conv.product_name||'Product')+val+'</div></div><div class="acttime">'+timeAgo(conv.started_at)+'</div></div>';
-      }).join('');
-    }
-  }
-}
-
-async function loadQueue(){
-  const data = await apiGet('/conversations/queue');
-  if(!data) return;
-  const el = document.getElementById('queue-list');
-  if(!el) return;
-  if(data.count === 0){
-    el.innerHTML = '<div style="text-align:center;padding:48px;color:var(--muted);font-size:14px">✅ No cases in queue right now</div>';
-    return;
-  }
-  el.innerHTML = data.queue.map(conv => '<div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><div style="font-weight:700;font-size:14px;color:var(--ink)">'+(conv.customer_name||'Customer')+'</div><div style="font-size:12px;color:var(--muted)">'+timeAgo(conv.started_at)+'</div></div><div style="font-size:13px;color:var(--ink2);margin-bottom:12px;">'+(conv.product_name||'Product')+(conv.order_value?' · ₹'+Number(conv.order_value).toLocaleString('en-IN'):'')+(conv.fraud_score?' · Fraud: '+conv.fraud_score:'')+'</div><div style="display:flex;gap:8px;"><button class="btn btl bsm" onclick="resolveCase('+conv.id+','approved')">✅ Approve</button><button class="btn bdn bsm" onclick="resolveCase('+conv.id+','denied')">❌ Deny</button></div></div>').join('');
-}
-
-async function resolveCase(convId, verdict){
-  if(!confirm('Mark this case as '+verdict+'?')) return;
-  const result = await apiPost('/conversations/'+convId+'/resolve', { verdict });
-  if(result.status === 200){ alert('Case '+verdict+' successfully!'); loadQueue(); }
-  else alert('Error: '+(result.data.error||'Unknown'));
-}
-
-// Override nav to load data
-const _origNav2 = nav;
-nav = function(id){
-  _origNav2(id);
-  if(id==='queue') setTimeout(loadQueue,100);
-  if(id==='dashboard') setTimeout(loadDashboard,100);
-};
-
-// ── STARTUP ──
-(function(){
-  const saved = localStorage.getItem('riq_token');
-  if(saved){
-    AUTH_TOKEN = saved;
-    fetch(API_BASE+'/auth/me',{headers:apiHeaders()})
-      .then(r=>r.json())
-      .then(d=>{
-        if(d.user){ CURRENT_USER=d.user; showApp(); }
-        else logout();
-      }).catch(()=>logout());
-  } else {
-    document.getElementById('s-login').style.display='flex';
-    document.getElementById('main-shell').style.pointerEvents='none';
-  }
-})();
-
-</script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════
    SCREEN NAVIGATION
 ═══════════════════════════════════════ */
@@ -2372,4 +2206,277 @@ function updateSummary(){
       <div class="wfd-sum-row"><div class="wfd-sum-ico" style="background:#F0FDFA">📸</div><div><div class="wfd-sum-name">Request More Photos</div><div class="wfd-sum-desc">Medium-risk, confidence &lt;70%</div></div></div>
       <div class="wfd-sum-row"><div class="wfd-sum-ico" style="background:#FEE2E2">❌</div><div><div class="wfd-sum-name">Auto Deny</div><div class="wfd-sum-desc">High-risk path</div></div></div>
       <div class="wfd-sum-row"><div class="wfd-sum-ico" style="background:#EEF2FF">💼</div><div><div class="wfd-sum-name">Teams Fraud Alert</div><div class="wfd-sum-desc">High-risk path · #fraud-alerts channel</div></div></div>
-    </div
+    </div    </div>
+  `;
+}
+
+function wfdReset(){
+  if(confirm('Reset to default workflow?')) {
+    wfdTree = wfdDefaultTree();
+    renderWfd();
+  }
+}
+
+function initWfd(){
+  if(!wfdTree){ wfdTree = wfdDefaultTree(); }
+  renderWfd();
+}
+
+function wnxt(from){
+  document.getElementById('wp'+from).style.display='none';
+  var to=from+1;
+  document.getElementById('wp'+to).style.display='block';
+  document.getElementById('ws'+from).className='ws done';
+  document.getElementById('ws'+from).querySelector('.wscir').textContent='v';
+  document.getElementById('ws'+to).className='ws active';
+  window.scrollTo(0,0);
+  if(to===3) setTimeout(initWfd,60);
+}
+
+function wprv(from){
+  document.getElementById('wp'+from).style.display='none';
+  var to=from-1;
+  document.getElementById('wp'+to).style.display='block';
+  document.getElementById('ws'+from).className='ws idle';
+  document.getElementById('ws'+from).querySelector('.wscir').textContent=String(from+1);
+  document.getElementById('ws'+to).className='ws active';
+  if(to===3) setTimeout(initWfd,60);
+}
+
+function activate(){
+  document.getElementById('act-ft').style.display='none';
+  document.getElementById('dep-out').style.display='block';
+  document.getElementById('ws4').className='ws done';
+  document.getElementById('ws4').querySelector('.wscir').textContent='v';
+}
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sb-overlay').classList.toggle('show');
+}
+
+function closeSidebar(){
+  var sb=document.getElementById('sidebar');
+  var ov=document.getElementById('sb-overlay');
+  if(sb) sb.classList.remove('open');
+  if(ov) ov.classList.remove('show');
+}
+
+function focusAgentName(){
+  setTimeout(function(){
+    var inp=document.getElementById('agentNameInput');
+    if(inp) inp.focus();
+  },80);
+}
+
+nav('dashboard');
+
+</script>
+<script>
+var API_BASE = 'https://returniq-api.onrender.com/api';
+var AUTH_TOKEN = null;
+var CURRENT_USER = null;
+
+function apiHeaders() {
+  var h = {'Content-Type': 'application/json'};
+  if (AUTH_TOKEN) h['Authorization'] = 'Bearer ' + AUTH_TOKEN;
+  return h;
+}
+
+function doLogin() {
+  var email = document.getElementById('login-email').value.trim();
+  var pw = document.getElementById('login-pw').value.trim();
+  var errEl = document.getElementById('login-err');
+  var btn = document.getElementById('login-btn');
+  if (!email || !pw) { errEl.textContent = 'Please enter email and password'; return; }
+  btn.textContent = 'Signing in...';
+  btn.disabled = true;
+  errEl.textContent = '';
+  fetch(API_BASE + '/auth/login', {
+    method: 'POST',
+    headers: apiHeaders(),
+    body: JSON.stringify({email: email, password: pw})
+  }).then(function(res) {
+    return res.json().then(function(data) { return {status: res.status, data: data}; });
+  }).then(function(result) {
+    if (result.status === 200) {
+      AUTH_TOKEN = result.data.access_token;
+      CURRENT_USER = result.data.user;
+      localStorage.setItem('riq_token', AUTH_TOKEN);
+      showApp();
+    } else {
+      errEl.textContent = result.data.error || 'Login failed';
+    }
+    btn.textContent = 'Sign In';
+    btn.disabled = false;
+  }).catch(function() {
+    errEl.textContent = 'Cannot reach server';
+    btn.textContent = 'Sign In';
+    btn.disabled = false;
+  });
+}
+
+function showApp() {
+  document.getElementById('s-login').style.display = 'none';
+  document.getElementById('main-shell').style.display = 'block';
+  document.getElementById('main-shell').style.pointerEvents = 'auto';
+  var name = CURRENT_USER.full_name.split(' ')[0];
+  document.querySelectorAll('.tb-uname').forEach(function(el) { el.textContent = name; });
+  document.querySelectorAll('.sb-ava, .tb-ava').forEach(function(el) { el.textContent = name[0]; });
+  nav('dashboard');
+  loadDashboard();
+}
+
+function logout() {
+  AUTH_TOKEN = null; CURRENT_USER = null;
+  localStorage.removeItem('riq_token');
+  document.getElementById('main-shell').style.display = 'none';
+  document.getElementById('main-shell').style.pointerEvents = 'none';
+  document.getElementById('s-login').style.display = 'flex';
+}
+
+function timeAgo(d) {
+  var s = Math.floor((new Date() - new Date(d)) / 1000);
+  if (s < 60) return s + 's ago';
+  if (s < 3600) return Math.floor(s/60) + 'm ago';
+  if (s < 86400) return Math.floor(s/3600) + 'h ago';
+  return Math.floor(s/86400) + 'd ago';
+}
+
+function loadDashboard() {
+  fetch(API_BASE + '/dashboard/summary?days=30', {headers: apiHeaders()})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var t = data.totals;
+      var mc1 = document.querySelector('.mc1 .mc-val');
+      var mc2 = document.querySelector('.mc2 .mc-val');
+      var mc3 = document.querySelector('.mc3 .mc-val');
+      var mc4 = document.querySelector('.mc4 .mc-val');
+      if (mc1) mc1.textContent = t.all || 0;
+      if (mc2) mc2.textContent = t.approved || 0;
+      if (mc3) mc3.textContent = t.denied || 0;
+      if (mc4) mc4.textContent = t.escalated || 0;
+      var pct = t.all > 0 ? Math.round((t.approved||0)/t.all*100) : 0;
+      var dv = document.querySelector('text[font-size="21"]');
+      if (dv) dv.textContent = pct + '%';
+      var dlv = document.querySelectorAll('.dlval');
+      if (dlv[0]) dlv[0].textContent = t.approved || 0;
+      if (dlv[1]) dlv[1].textContent = t.denied || 0;
+      if (dlv[2]) dlv[2].textContent = t.escalated || 0;
+    }).catch(function(e) { console.log('Dashboard error', e); });
+
+  fetch(API_BASE + '/conversations/?limit=5', {headers: apiHeaders()})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.conversations || !data.conversations.length) return;
+      var list = document.querySelector('.actlist');
+      if (!list) return;
+      var colors = ['linear-gradient(135deg,#667eea,#764ba2)',
+        'linear-gradient(135deg,#f093fb,#f5576c)',
+        'linear-gradient(135deg,#4facfe,#00f2fe)',
+        'linear-gradient(135deg,#43e97b,#38f9d7)',
+        'linear-gradient(135deg,#fa709a,#fee140)'];
+      var h = '';
+      data.conversations.forEach(function(conv, i) {
+        var name = conv.customer_name || 'Customer';
+        var v = conv.verdict || 'pending';
+        var lbl = v === 'approved' ? 'Return Approved' : v === 'denied' ? 'Return Denied' : v === 'escalated' ? 'Escalated' : 'Processing';
+        var val = conv.order_value ? ' - Rs.' + Number(conv.order_value).toLocaleString('en-IN') : '';
+        h += '<div class="actitem"><div class="actava" style="background:' + colors[i%5] + '">' + name[0] + '</div>' +
+          '<div style="flex:1"><div class="acttitle">' + lbl + ' - ' + name + '</div>' +
+          '<div class="actsub">' + (conv.product_name || '') + val + '</div></div>' +
+          '<div class="acttime">' + timeAgo(conv.started_at) + '</div></div>';
+      });
+      list.innerHTML = h;
+    }).catch(function(e) { console.log('Activity error', e); });
+}
+
+function loadQueue() {
+  fetch(API_BASE + '/conversations/queue', {headers: apiHeaders()})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var el = document.getElementById('queue-list');
+      if (!el) return;
+      if (!data.count) {
+        el.innerHTML = '<div style="text-align:center;padding:48px;color:#8B88B0;">No cases in queue</div>';
+        return;
+      }
+      var h = '';
+      data.queue.forEach(function(conv) {
+        var val = conv.order_value ? 'Rs.' + Number(conv.order_value).toLocaleString('en-IN') : '';
+        h += '<div style="background:#fff;border:1px solid rgba(90,80,180,.12);border-radius:14px;padding:18px 20px;margin-bottom:12px;">' +
+          '<div style="display:flex;justify-content:space-between;margin-bottom:8px;">' +
+          '<div style="font-weight:700;">' + (conv.customer_name || 'Customer') + '</div>' +
+          '<div style="font-size:12px;color:#8B88B0;">' + timeAgo(conv.started_at) + '</div></div>' +
+          '<div style="font-size:13px;margin-bottom:12px;">' + (conv.product_name || '') + (val ? ' - ' + val : '') + '</div>' +
+          '<div style="display:flex;gap:8px;">' +
+          '<button class="btn btl bsm" onclick="resolveCase(' + conv.id + ','approved')">Approve</button>' +
+          '<button class="btn bdn bsm" onclick="resolveCase(' + conv.id + ','denied')">Deny</button>' +
+          '</div></div>';
+      });
+      el.innerHTML = h;
+    }).catch(function(e) { console.log('Queue error', e); });
+}
+
+function resolveCase(id, verdict) {
+  if (!confirm('Mark as ' + verdict + '?')) return;
+  fetch(API_BASE + '/conversations/' + id + '/resolve', {
+    method: 'POST', headers: apiHeaders(), body: JSON.stringify({verdict: verdict})
+  }).then(function(r) { return r.json().then(function(d) { return {s: r.status, d: d}; }); })
+  .then(function(res) {
+    if (res.s === 200) { alert('Done!'); loadQueue(); }
+    else alert('Error: ' + (res.d.error || 'Unknown'));
+  });
+}
+
+// Patch nav
+var _riqNav = null;
+var _navPatchInterval = setInterval(function() {
+  if (typeof nav === 'function' && nav !== _riqNav) {
+    clearInterval(_navPatchInterval);
+    _riqNav = nav;
+    nav = function(id) {
+      _riqNav(id);
+      if (id === 'queue') setTimeout(loadQueue, 150);
+      if (id === 'dashboard') setTimeout(loadDashboard, 150);
+    };
+  }
+}, 50);
+
+// Add Sign Out to dropdown
+document.addEventListener('DOMContentLoaded', function() {
+  var ddHead = document.querySelector('.dd-head');
+  if (ddHead) {
+    var signOut = document.createElement('div');
+    signOut.className = 'dd-item';
+    signOut.style.color = '#DC2626';
+    signOut.textContent = 'Sign Out';
+    signOut.onclick = logout;
+    ddHead.parentNode.appendChild(signOut);
+  }
+
+  // Add queue-list if missing
+  var queueScreen = document.getElementById('s-queue');
+  if (queueScreen && !document.getElementById('queue-list')) {
+    var ql = document.createElement('div');
+    ql.id = 'queue-list';
+    ql.style.marginTop = '20px';
+    queueScreen.insertBefore(ql, queueScreen.firstChild);
+  }
+
+  // Check auth state
+  var saved = localStorage.getItem('riq_token');
+  if (saved) {
+    AUTH_TOKEN = saved;
+    fetch(API_BASE + '/auth/me', {headers: apiHeaders()})
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d.user) { CURRENT_USER = d.user; showApp(); }
+        else { logout(); }
+      }).catch(function() { logout(); });
+  }
+});
+</script>
+</div>
+</body>
+</html>
